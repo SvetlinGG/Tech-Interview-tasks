@@ -1,7 +1,7 @@
 function removeDuplicates(arr){
     const newArr = [];
     const found = arr.find((element, index) => {
-        if (element !== index){
+        if (!newArr || element !== index){
             newArr.push(element)
 
         }
