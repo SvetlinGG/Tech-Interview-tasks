@@ -5,13 +5,14 @@ function calculateCart(cart){
         totalPrice: 0,
         mostExpensive: ""
     };
-
+    let totalPriceItems = [];
     for ( let item of cart){
-        //console.log(item.name);
-        //console.log(item.price);
         let totalItems = item.quantity;
         completeObj.totalItems += totalItems;
         
+        
+        
+        completeObj.totalPrice += item.price * item.quantity;
     }
     console.log(completeObj);
     
