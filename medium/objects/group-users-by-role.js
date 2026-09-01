@@ -7,7 +7,7 @@ function groupByRole(users){
         let name = obj.name;
         let role = obj.role;
 
-        if ( resultObj[role]){
+        if ( !resultObj[role]){
             resultObj[role] = []
         }
 
@@ -15,6 +15,7 @@ function groupByRole(users){
     }
     
     console.log(resultObj);
+    
     
 
     
