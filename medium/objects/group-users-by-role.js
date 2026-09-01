@@ -1,10 +1,20 @@
 function groupByRole(users){
 
-    let newObj = Object.entries(users);
-    for ( let [key, value] of newObj ){
-        console.log(value);
-        
+    
+    let resultObj = {};
+
+    for ( let obj of users ){
+        let name = obj.name;
+        let role = obj.role;
+
+        if ( resultObj[role]){
+            resultObj[role] = []
+        }
+
+        resultObj[role].push(name)
     }
+    
+    console.log(resultObj);
     
 
     
