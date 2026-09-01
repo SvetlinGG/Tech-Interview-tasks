@@ -6,27 +6,14 @@ function calculateCart(cart){
         mostExpensive: ""
     };
 
-    let itemsInfo = Object.entries(cart);
-    
-    for ( let items of itemsInfo){
-        //console.log(items[1]);
-        
-        for ( let content of Object.entries(items[1])){
-            //console.log(content);
-            let [keyItems, valueItems] = content;
-            for ( let i = 0; i < valueItems; i+=2){
-                let totalItems = valueItems[i]
-                if(!completeObj[totalItems]){
-                completeObj[totalItems] += Number(valueItems[i])  
-            }
-
-            }
-            
-            
-        }
+    for ( let item of cart){
+        //console.log(item.name);
+        //console.log(item.price);
+        completeObj[totalItems] += item.quantity;
         
     }
     console.log(completeObj);
+    
     
 }
 calculateCart([
