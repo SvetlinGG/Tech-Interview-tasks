@@ -1,18 +1,16 @@
 function calculateCart(cart){
 
     let completeObj = {
-        // totalItems: 0,
-        // totalPrice: 0,
-        // mostExpensive: ""
+        totalItems: 0,
+        totalPrice: 0,
+        mostExpensive: ""
     };
 
     for ( let item of cart){
         //console.log(item.name);
         //console.log(item.price);
-        let itemQuantity = item.quantity;
-        if (!completeObj){
-            completeObj[totalItems] += itemQuantity;
-        }
+        let totalItems = item.quantity;
+        completeObj.totalItems += totalItems;
         
     }
     console.log(completeObj);
