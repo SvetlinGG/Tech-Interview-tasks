@@ -1,11 +1,11 @@
 function flattenArray(arr){
 
     let newArr = [];
-    for (let item of arr){
-        item = item.join('');
-        newArr.push(item)
+    for (let items of arr){
+        items.forEach(item => Number(item));
+        newArr.push(items);
     }
-    return newArr.join('').split('').join(' ');
+    console.log(newArr.join(','));
     
 
 
