@@ -5,19 +5,15 @@ function salaryByDepartment(employees){
     for ( let items of employees){
 
         if (!salaryDepartment[items.department]){
-            salaryDepartment[items.department] = 1;
-            if (items.department === 'IT'){
-                items.salary ++;
-            }else if (items.department === 'HR'){
-                items.salary ++
-            }
+            
+            salaryDepartment[items.department] = items.salary;
 
          } else {
-             salaryDepartment[items.department] = items.salary;
+             salaryDepartment[items.department] += items.salary;
 
          }
     }
-    console.log(salaryDepartment);
+    return salaryDepartment;
     
 
 
