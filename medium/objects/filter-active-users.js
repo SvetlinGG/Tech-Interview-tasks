@@ -1,9 +1,8 @@
 function getActiveUsers(users){
 
-
-}
-getActiveUsers([
-    { name: "Anna", active: true },
-    { name: "John", active: false },
-    { name: "Peter", active: true }
-])
+    let arr = [];
+    for ( let item of users){
+        
+        if ( item.active === true){
+            arr.push(item.name)
+      
