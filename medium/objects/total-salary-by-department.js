@@ -1,5 +1,20 @@
 function salaryByDepartment(employees){
 
+    let salaryDepartment = {};
+
+    for ( let items of employees){
+
+        if (!salaryDepartment[items.department]){
+            salaryDepartment[items.department] = 1;
+
+        }else {
+            salaryDepartment[items.department] = items.salary;
+
+        }
+    }
+    console.log(salaryDepartment);
+    
+
 
 }
 salaryByDepartment([
