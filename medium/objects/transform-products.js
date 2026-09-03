@@ -1,13 +1,23 @@
 function applyDiscount(products, discount){
 
-    for ( let items of products){
-        if (items){
-            items.price = items.price - (items.price * discount / 100);
+    // for ( let items of products){
+    //     if (items){
+    //         items.price = items.price - (items.price * discount / 100);
             
-        }
+    //     }
         
-    }
-    return products;
+    // }
+    // return products;
+
+    let newProducts = {};
+
+    return products.map(items => {
+        return {
+            name: items.name,
+            price: items.price - (items.price * discount / 100)
+        }
+    });
+    
 
 }
 applyDiscount([
