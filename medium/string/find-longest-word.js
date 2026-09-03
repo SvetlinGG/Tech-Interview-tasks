@@ -1,7 +1,12 @@
 function findLongestWord(str){
 
     let arr = str.split(' ');
-    console.log(Math.max(...arr.map(word => word.length)));
+    let result = arr.map(word => {
+        if (word.length  === arr.find(word)) {
+            console.log(word);
+            
+        }
+    })
 
 }
 findLongestWord("JavaScript is really powerful")

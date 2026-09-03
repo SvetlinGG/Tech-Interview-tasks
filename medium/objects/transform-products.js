@@ -14,14 +14,4 @@ function applyDiscount(products, discount){
     return products.map(items => {
         return {
             name: items.name,
-            price: items.price - (items.price * discount / 100)
-        }
-    });
     
-
-}
-applyDiscount([
-    { name: "Laptop", price: 1000 },
-    { name: "Mouse", price: 20 },
-    { name: "Keyboard", price: 80 }
-], 10)
