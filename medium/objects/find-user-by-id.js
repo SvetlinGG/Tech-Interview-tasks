@@ -11,7 +11,7 @@ for ( let user of users){
     if (user.id === id){
         console.log(`{ id:${user.id}, name:${user.name} }`);
     }
-    return null;
+    //return null;
 }
 
 }
