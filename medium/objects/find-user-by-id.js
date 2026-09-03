@@ -23,4 +23,4 @@ findUser([
 // { id: 2, name: "John" };
 
 //findUser(users, 10)
-// nu
+// null
