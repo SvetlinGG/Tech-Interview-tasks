@@ -1,5 +1,9 @@
 function averageSalary(employees){
 
+    let totalSalary = employees.reduce((acc, curr) => acc + curr.salary, 0);
+    return totalSalary / employees.length;
+    
+
 
 }
 averageSalary([
