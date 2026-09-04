@@ -9,13 +9,4 @@ function activateUser(users, id){
         }
     }) 
 
-    return userArr;
-    
-
-
-}
-activateUser([
-    { id: 1, name: "Anna", active: true },
-    { id: 2, name: "John", active: false },
-    { id: 3, name: "Peter", active: true }
-], 2)
+    retu
