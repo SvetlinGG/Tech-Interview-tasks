@@ -1,6 +1,16 @@
 function activateUser(users, id){
 
-    let userObj = {};
+    let userArr
+ = users.map(user => {
+        if(user.id === id){
+            return {...user, active:true}
+        }else{
+            return user;
+        }
+    }) 
+
+    return userArr;
+    
 
 
 }

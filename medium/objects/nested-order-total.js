@@ -24,4 +24,8 @@ calculateOrdersTotal([
     {
         id: 2,
         items: [
-            { name: "Keyboard", price: 8
+            { name: "Keyboard", price: 80, quantity: 1 }
+        ]
+    }
+]);
+// 1120
