@@ -1,5 +1,22 @@
 function normalizeUsers(users){
 
+    //let newUsers = {};
+
+    users.map(user => {
+
+         let newUsers = {
+
+                id: user.id,
+                name: user.name.trim().toLowerCase(),
+                email: user.email.trim().toLowerCase()
+        }
+        return newUsers;
+
+    })
+    //console.log(newUsers);
+    
+    
+
 
 }
 normalizeUsers([
