@@ -3,16 +3,18 @@ function findMostExpensiveOrder(orders){
     let expensiveOrder = {};
 
     for ( let order of orders){
+        let totalPrice = 0;
         for ( let item of order.items){
-            let totalPrice = item.price * item.quantity;
-            if (!expensiveOrder.total || item.price > expensiveOrder.total ){
+            totalPrice += item.price * item.quantity;
+        }
+        if (!expensiveOrder.total || totalPrice > expensiveOrder.total ){
                 expensiveOrder.total = totalPrice;
                 expensiveOrder.id = order.id;
             }
-        }
     }
-    console.log(expensiveOrder);
-    ;
+    return expensiveOrder;
+    
+    
     
 
 
