@@ -1,5 +1,21 @@
 function stockValueByCategory(products){
 
+    let stockObj = {
+        tech: 0,
+        food: 0
+    }
+
+    for ( let items of products){
+        if ( items.category === 'tech'){
+            stockObj.tech += items.price * items.stock
+        }
+        if( items.category === 'food'){
+            stockObj.food += items.price * items.stock
+        }
+    }
+    console.log(stockObj);
+    
+
 
 }
 stockValueByCategory([

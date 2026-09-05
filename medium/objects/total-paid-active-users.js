@@ -18,6 +18,4 @@ function getTopActiveUsers(users, n){
 getTopActiveUsers([
     { name: "Anna", active: true, salary: 2200 },
     { name: "John", active: false, salary: 3000 },
-    { name: "Peter", active: true, salary: 3500 },
-    { name: "Maria", active: true, salary: 2800 }
-], 2)
+    { name: "Peter", active:
