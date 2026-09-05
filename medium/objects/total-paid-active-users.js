@@ -5,14 +5,15 @@ function getTopActiveUsers(users, n){
     for (let user of users){
         
         if (user.active == true){
-            console.log(user.salary);
-            
+            usersObj[user.name] = user.salary;
         }
         
     }
-
-
-
+    let userArr = Object.entries(usersObj)
+    .sort((a,b) => b[1] - a[1])
+    .slice(0,n)
+    .map(item => item[0]);
+    return userArr;
 }
 getTopActiveUsers([
     { name: "Anna", active: true, salary: 2200 },
