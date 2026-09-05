@@ -1,19 +1,24 @@
 function stockValueByCategory(products){
 
-    let stockObj = {
-        tech: 0,
-        food: 0
-    }
+    let stockObj = {}
 
     for ( let items of products){
-        if ( items.category === 'tech'){
-            stockObj.tech += items.price * items.stock
+
+        if(!stockObj[items.category] ){
+            stockObj[items.category] = items.price * items.stock
+        }else {
+
+            stockObj[items.category] += items.price * items.stock
         }
-        if( items.category === 'food'){
-            stockObj.food += items.price * items.stock
-        }
-    }
-    console.log(stockObj);
+    //     if ( items.category === 'tech'){
+    //         stockObj.tech += items.price * items.stock
+    //     }
+    //     if( items.category === 'food'){
+    //         stockObj.food += items.price * items.stock
+    //     }
+     }
+    return stockObj;
+    
     
 
 
