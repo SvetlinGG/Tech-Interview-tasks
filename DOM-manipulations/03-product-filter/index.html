@@ -15,7 +15,19 @@
     <li>Monitor</li>
 </ul>
 <script>
-    
+    const input = document.getElementById('search');
+    const items = document.querySelectorAll('#products li');
+
+    input.addEventListener('input', (e) => {
+        items.forEach(item => {
+            if ( e.target.value === item.textContent){
+                item.style.display = 'inline'
+        }else{
+                item.style.display = 'block'
+        }
+        })
+    })
+</script>
 </script>
 </body>
 </html>
