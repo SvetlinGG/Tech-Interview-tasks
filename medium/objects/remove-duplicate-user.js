@@ -9,7 +9,7 @@ function removeDuplicateUsers(users){
         }
     }
     
-    console.log(newArr);
+    return newArr;
     
 
 
@@ -23,3 +23,7 @@ removeDuplicateUsers([
 ]);
 
 // [
+//     { id: 1, name: "Anna" },
+//     { id: 2, name: "John" },
+//     { id: 3, name: "Peter" }
+// ]
