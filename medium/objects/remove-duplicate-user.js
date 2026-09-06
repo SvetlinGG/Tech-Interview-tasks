@@ -23,7 +23,4 @@ removeDuplicateUsers([
 ]);
 
 // [
-//     { id: 1, name: "Anna" },
-//     { id: 2, name: "John" },
-//     { id: 3, name: "Peter" }
-// ]
+//    
