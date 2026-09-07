@@ -19,17 +19,20 @@
 <script>
     const liElements = document.querySelectorAll('#cart li');
     const button = document.getElementById('calculate');
-    const total = document.getElementById('total')
-
+    const total = document.getElementById('total');
+   
+    
+    
     button.addEventListener('click', onClick);
 
     function onClick(){
-
+        let totalPrice = 0;
         liElements.forEach(item => {
 
-            total.textContent += Number(item.dataset.price) * Number(item.dataset.quantity);
+            totalPrice += Number(item.dataset.price) * Number(item.dataset.quantity);
 
-        })
+        });
+        total.textContent ='Total: ' + totalPrice
     }
     
 
