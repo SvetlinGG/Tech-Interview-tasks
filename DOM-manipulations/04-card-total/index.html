@@ -17,7 +17,23 @@
 <button id="calculate">Calculate</button>
 
 <script>
+    const liElements = document.querySelectorAll('#cart li');
+    const button = document.getElementById('calculate');
+    const total = document.getElementById('total')
+
+    button.addEventListener('click', onClick);
+
+    function onClick(){
+
+        liElements.forEach(item => {
+
+            total.textContent += Number(item.dataset.price) * Number(item.dataset.quantity);
+
+        })
+    }
     
+
+
 </script>
 </body>
 </html>
