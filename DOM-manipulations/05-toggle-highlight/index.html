@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .highlight {
+            background: yellow;
+            font-weight: bold;
+        }
+    </style>
+    <p id="message">Hello DOM</p>
+    <button id="toggle">Toggle</button>
+
+    <script>
+        const pElement = document.getElementById('message');
+        const button = document.getElementById('toggle');
+
+        button.addEventListener('click', onClick);
+
+        function onClick(){
+            pElement.className = pElement.className 
