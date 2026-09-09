@@ -9,5 +9,20 @@
     <input id="name" type="text" placeholder="Enter your name">
 
     <p id="preview">Your name: </p>
+
+    <script>
+
+        const input = document.getElementById('name');
+        const pElement = document.getElementById('preview');
+
+        input.addEventListener('input', onType);
+
+        function onType(){
+            
+            //pElement.textContent = input.value;
+            
+            pElement.textContent = "Your name:" + input.value;
+        }
+    </script>
 </body>
 </html>
