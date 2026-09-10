@@ -16,8 +16,21 @@
         const btn = document.getElementById('addTask');
         const ulElement = document.getElementById('taskList');
 
+
         btn.addEventListener('click', onClick);
-        
+
+        function onClick(){
+            
+            const value = inputArea.value.trim();
+            if(!value) return;
+                
+            
+            const createLiElement = document.createElement('li');
+
+            createLiElement.textContent = inputArea.value;
+            ulElement.append(createLiElement);
+            inputArea.value = '';
+        }
     </script>
 </body>
 </html>
