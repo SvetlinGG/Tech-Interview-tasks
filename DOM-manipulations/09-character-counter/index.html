@@ -10,7 +10,16 @@
     <p id="counter">0 / 100</p>
 
     <script>
-        
+        const textArea = document.getElementById('message');
+        const counter = document.getElementById('counter');
+
+        textArea.addEventListener('input', onInput);
+
+        function onInput(){
+            //counter.textContent = Number(counter.textContent)
+            counter.textContent = textArea.value.length + ' / 100';
+            
+        }
     </script>
 </body>
 </html>
