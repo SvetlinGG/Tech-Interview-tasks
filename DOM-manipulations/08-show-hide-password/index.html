@@ -16,7 +16,13 @@
         btn.addEventListener('click', onClick);
 
         function onClick(){
-            
+            if ( btn.textContent === 'Show'){
+                input.value.display = 'block';
+                btn.textContent = 'Hide'
+            }else if ( btn.textContent === 'Hide'){
+                input.value.display = 'inline';
+                btn.textContent = 'Show'
+            }
         }
     </script>
 </body>
