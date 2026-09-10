@@ -22,8 +22,17 @@
 
         input.addEventListener('input', onType);
 
-        function onType(){
+        function onType(e){
+            let inputValue = e.target.value.toLowerCase();
             
+            liElements.forEach(item => {
+                let personName = item.textContent.toLowerCase();
+                if(personName.includes(inputValue)){
+                    item.style.display = 'inline'
+                }else{
+                    item.style.display = 'none'
+                }
+            })
         }
     </script>
 </body>
