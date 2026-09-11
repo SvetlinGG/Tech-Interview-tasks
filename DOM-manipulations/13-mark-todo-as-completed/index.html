@@ -35,9 +35,8 @@
 
         function onClick(e){
             if (e.target.classList.contains('complete')){
-                e.target.classList.replace('complete', 'completed')
+                e.target.parentElement.classList.toggle('completed')
             }
-
 
         }
 
