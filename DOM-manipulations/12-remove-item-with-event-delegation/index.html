@@ -14,15 +14,23 @@
 
     <script>
         const ulElement = document.getElementById('taskList');
-        const btn = document.getElementsByClassName('delete');
 
         ulElement.addEventListener('click', onClick);
 
-        function onClick(){
-            const liElement = document.getElementsByTagName('li');
-            if (btn){
-                ulElement.remove(liElement.value)
+        function onClick(e){
+            const liElement = document.querySelectorAll('li');
+
+            if (e.target.classList.contains('delete')){
+                liElement.remove(e.target);
+            }else {
+                return
             }
+            
+            // liElement.forEach( el => {
+                  
+            //         ulElement.remove(el.textContent)
+            
+            // })
         }
     </script>
 </body>
