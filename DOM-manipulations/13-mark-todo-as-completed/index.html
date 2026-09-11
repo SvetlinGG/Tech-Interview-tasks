@@ -10,7 +10,7 @@
         .completed {
     text-decoration: line-through;
     opacity: 0.6;
-}
+    }
     </style>
 
     <ul id="todoList">
@@ -28,8 +28,19 @@
     </li>
 </ul>
 
-<script>
+    <script>
 
-</script>
+        const ulElement = document.getElementById('todoList');
+        ulElement.addEventListener('click', onClick);
+
+        function onClick(e){
+            if (e.target.classList.contains('complete')){
+                e.target.classList.replace('complete', 'completed')
+            }
+
+
+        }
+
+    </script>
 </body>
 </html>
