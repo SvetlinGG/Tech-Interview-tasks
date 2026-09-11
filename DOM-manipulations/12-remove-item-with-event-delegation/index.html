@@ -19,7 +19,10 @@
         ulElement.addEventListener('click', onClick);
 
         function onClick(){
-            
+            const liElement = document.getElementsByTagName('li');
+            if (btn){
+                ulElement.remove(liElement.value)
+            }
         }
     </script>
 </body>
