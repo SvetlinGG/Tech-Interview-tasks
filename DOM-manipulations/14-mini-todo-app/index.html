@@ -21,7 +21,28 @@
     <ul id="taskList"></ul>
 
     <script>
-        
+        const input = document.getElementById('taskInput');
+        const btn = document.getElementById('addTask');
+        const ulElement = document.getElementById('taskList')
+        const counter = document.getElementById('taskCount');
+
+        btn.addEventListener('click', onClick);
+
+        function onClick(e){
+
+            const cresteLiElement = document.createElement('li');
+            if (input.value = 'Learn DOM'){
+                ulElement.appendChild(cresteLiElement);
+                cresteLiElement.textContent = `
+                <li>
+                    <span>Learn DOM</span>
+                    <button class="complete">Complete</button>
+                    <button class="delete">Delete</button>
+                </li>
+                `
+            }
+
+        }
 
 
     </script>
