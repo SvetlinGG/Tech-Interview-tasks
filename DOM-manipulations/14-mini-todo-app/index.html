@@ -30,17 +30,24 @@
 
         function onClick(e){
 
-            const cresteLiElement = document.createElement('li');
-            if (input.value = 'Learn DOM'){
-                ulElement.appendChild(cresteLiElement);
-                cresteLiElement.textContent = `
-                <li>
-                    <span>Learn DOM</span>
-                    <button class="complete">Complete</button>
-                    <button class="delete">Delete</button>
-                </li>
-                `
-            }
+            const createLiElement = document.createElement('li');
+            const value = input.value.trim();
+            if(!value) return;
+
+            const createSpanElement = document.createElement('span');
+            const createBtnComplete = document.createElement('button');
+            createBtnComplete.textContent = 'Complete';
+
+            const createBtnDelete = document.createElement('button');
+            createBtnDelete.textContent = 'Delete';
+
+            createSpanElement.textContent = input.value;
+
+            createBtnComplete.classList.add('complete')
+
+            createBtnDelete.classList.add('delete')
+
+
 
         }
 
