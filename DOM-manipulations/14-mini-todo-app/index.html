@@ -41,13 +41,17 @@
             const createBtnDelete = document.createElement('button');
             createBtnDelete.textContent = 'Delete';
 
-            createSpanElement.textContent = input.value;
+            createSpanElement.textContent = value;
 
-            createBtnComplete.classList.add('complete')
+            createBtnComplete.classList.add('complete');
 
-            createBtnDelete.classList.add('delete')
+            createBtnDelete.classList.add('delete');
 
+            createLiElement.appendChild(createSpanElement);
+            createLiElement.appendChild(createBtnComplete);
+            createLiElement.appendChild(createBtnDelete);
 
+            ulElement.appendChild(createLiElement);
 
         }
 
