@@ -18,19 +18,13 @@
         ulElement.addEventListener('click', onClick);
 
         function onClick(e){
-            const liElement = document.querySelectorAll('li');
+            //const liElement = document.querySelector('li');
 
             if (e.target.classList.contains('delete')){
-                liElement.remove(e.target);
+                e.target.parentElement.remove();
             }else {
                 return
             }
-            
-            // liElement.forEach( el => {
-                  
-            //         ulElement.remove(el.textContent)
-            
-            // })
         }
     </script>
 </body>
