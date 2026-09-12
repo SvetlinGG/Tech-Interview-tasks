@@ -1,5 +1,19 @@
 function getTopCustomers(orders, minTotal){
 
+    let arr = [];
+
+    for ( let item of orders){
+        if ( item.status === 'completed'){
+            if (item.total >= minTotal){
+                arr.push(item.customer);
+
+            }
+        }
+    }
+    console.log(arr);
+    
+    
+
 
 }
 getTopCustomers([
