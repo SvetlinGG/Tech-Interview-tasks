@@ -1,5 +1,21 @@
 function getMostExpensiveOrder(orders){
 
+    let customerObj = {};
+
+    for ( let item of orders){
+        let total = 0;
+
+        for (let product of item.products){
+
+            total += product.price * product.quantity;
+
+        }
+
+        customerObj[item.customer] = total;
+
+        
+}
+console.log(customerObj);
 
 }
 getMostExpensiveOrder([
