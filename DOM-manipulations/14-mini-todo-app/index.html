@@ -69,6 +69,7 @@
 
                 if (e.target.classList.contains('delete')){
                 e.target.parentElement.remove();
+                updateCounter();
                 }else {
                     return
             }
@@ -76,8 +77,8 @@
 
         function updateCounter(){
 
-            counter.value = Number(counter.textContent);
-            counter.textContent = "Tasks: " + ulElement;
+            //counter.textContent = Number(counter.textContent);
+            counter.textContent = "Tasks: " + ulElement.querySelectorAll('li').length;
         }
 
 
