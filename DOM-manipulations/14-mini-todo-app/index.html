@@ -24,6 +24,7 @@
         const input = document.getElementById('taskInput');
         const btn = document.getElementById('addTask');
         const ulElement = document.getElementById('taskList')
+
         const counter = document.getElementById('taskCount');
 
 
@@ -54,7 +55,7 @@
             createLiElement.appendChild(createBtnDelete);
 
             ulElement.appendChild(createLiElement);
-
+            updateCounter()
             input.value = '';
 
             
@@ -74,7 +75,9 @@
         }
 
         function updateCounter(){
-            
+
+            counter.value = Number(counter.textContent);
+            counter.textContent = "Tasks: " + ulElement;
         }
 
 

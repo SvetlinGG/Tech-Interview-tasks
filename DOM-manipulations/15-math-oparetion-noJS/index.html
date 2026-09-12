@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        @import url(https://fonts.bunny.net/css?family=jura:300,500);
+@layer base, demo;
+
+
+/* define simple math functions */
+@function --add(--x <integer>, --y <integer>) returns <integer> {
+	result: calc(var(--x) + var(--y));
+}
+@function --subtract(--x <integer>, --y <integer>) returns <integer> {
+	result: calc(var(--x) - var(--y));
+}
+@function --multiply(--x <integer>, --y <integer>) returns <integer> {
+	result: calc(var(--x) * var(--y));
+}
+@function --divide(--x <integer>, --y <integer>) returns <integer> {
+	result: calc(var(--x) / var(--y));
+}
+/*
+@function --calculate(--o , --x <integer>, --y <integer>) returns <integer> {
+	result: if(
+		style(--o: "add"): calc(var(--x) + var(--y));
+		style(--o: "minus"): calc(var(--x) - var(--y)); 
+		style(--o: "multiple"): calc(var(--x) * var(--y)); 
+		style(--o: "divide"):calc(var(--x) / var(--y));
+	);
+}
+*/
+
+@layer demo {
+	.wrapper{
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	p::after {
+		/* get values */
+		--value-1: attr(value-1 type(<number>), 0);
+		--value-2: attr(value-2 type(<number>), 0);
+		/* get operation */
+		--operation: attr(operation);
+		/* do math based on operator */
+		--math: if(
+			style(--operation: "+"): --add(var(--value-1), var(--value-2)) ;
+			style(--operation: "-"): --subtract(var(--value-1), var(--value-2)) ;
+			style(--operation: "*"): --multiply(var(--value-1), var(--value-2)) ;
+			style(--operation: "x"): --multiply(var(--value-1), var(--value-2)) ;/* alternative mulitply symbol */ 
+			style(--operation: "·"): --multiply(var(--value-1), var(--value-2)) ; /* alternative mulitply symbol */ 
+			style(--operation: "÷"): --divide(var(--value-1), var(--value-2)) ; 
+			style(--operation: "/"): --divide(var(--value-1), var(--value-2)) ; /* alternative divide symbol */
+		);
+
+		/*--math: --calculate(var(--opertation),var(--value-1), var(--value-2));*/
+
+		/* reset counter with values */
+		counter-reset: x var(--value-1) y var(--value-2) result var(--math);
+		content: counter(x) " " var(--operation) " " counter(y) " = " counter(result);
+	}
+	
+	/* just for styling */
+	p {
+		font-size: 2rem;
+		margin: 0;
+		padding: 0.5rem 2rem;
+		background: steelblue;
+		color: white;
+		border-radius:5px;
+	}
+}
+
+@layer base{
+	body {
+		min-height: 100svh;
+		display: grid;
+		place-content: center;
+		gap: 1rem;
+		font-size: 1rem;
+		font-family: "Jura", sans-serif;
+	}
+}
+
+/* general styling not relevant for this demo */
+@layer base {
+	* {
+		box-sizing: border-box;
+	}
+	:root {
+		color-scheme: light dark;
+		--bg-dark: rgb(16, 24, 40);
+		--bg-light: rgb(255, 237, 212);
+
+		--txt-light: rgb(10, 10, 10);
+		--txt-dark: rgb(245, 245, 245);
+		
+		
+	}
+
+	body {
+		background-color: light-dark(var(--bg-light), var(--bg-dark));
+		color: light-dark(var(--txt-light), var(--txt-dark));
+		min-height: 100svh;
+		margin: 0;
+		padding: 1rem;
+		font-family: "Jura", sans-serif;
+		font-size: 1rem;
+		line-height: 1.5;
+		display: flex;
+		place-items: center;
+		justify-content:center;
+		flex-direction: column;
+		gap: 2rem;
+		& > * {
+			/*outline: 1px dashed red;*/
+		}
+	}
+	h1 {
+		margin: 0;
+		font-size: 1.2rem;
+	}
+	
+	.msg-supports{
+    font-size: .8rem;
+    @supports (x: attr(x type(*))) {
+      display: none;
+    }
+  }
+}
+    </style>
+
+    <div class="wrapper">
+        <p value-1="20" value-2="4" operation="+"></p>
+    </div>
+</body>
+</html>
