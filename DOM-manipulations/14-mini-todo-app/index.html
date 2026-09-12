@@ -26,6 +26,8 @@
         const ulElement = document.getElementById('taskList')
         const counter = document.getElementById('taskCount');
 
+
+        ulElement.addEventListener('click', onPush);
         btn.addEventListener('click', onClick);
 
         function onClick(e){
@@ -55,6 +57,24 @@
 
             input.value = '';
 
+            
+
+        }
+
+        function onPush(e){
+                if (e.target.classList.contains('complete')){
+                e.target.parentElement.classList.toggle('completed')
+                }
+
+                if (e.target.classList.contains('delete')){
+                e.target.parentElement.remove();
+                }else {
+                    return
+            }
+        }
+
+        function updateCounter(){
+            
         }
 
 
