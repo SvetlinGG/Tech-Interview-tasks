@@ -15,7 +15,8 @@ function getMostExpensiveOrder(orders){
 
         
 }
-console.log(customerObj);
+let sorted = Object.entries(customerObj).sort((a, b) => b[1] - a[1]);
+    return {customer: sorted[0][0], total: sorted[0][1]};
 
 }
 getMostExpensiveOrder([
@@ -31,21 +32,4 @@ getMostExpensiveOrder([
         id: 2,
         customer: "John",
         products: [
-            { name: "Monitor", price: 300, quantity: 2 },
-            { name: "Keyboard", price: 80, quantity: 1 }
-        ]
-    },
-    {
-        id: 3,
-        customer: "Maria",
-        products: [
-            { name: "Phone", price: 700, quantity: 1 },
-            { name: "Case", price: 30, quantity: 3 }
-        ]
-    }
-]);
-
-// {
-//     customer: "Anna",
-//     total: 1280
-// }
+     
