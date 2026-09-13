@@ -19,4 +19,7 @@ getTopCustomers([
     { id: 4, customer: "Maria", total: 60, status: "cancelled" },
     { id: 5, customer: "David", total: 180, status: "completed" },
     { id: 6, customer: "Sarah", total: 90, status: "pending" }
-], 
+], 150);
+
+//output
+//["Peter", "David"]
