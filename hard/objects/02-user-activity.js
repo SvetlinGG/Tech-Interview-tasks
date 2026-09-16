@@ -23,4 +23,25 @@ countUserActions([
     { user: "Anna", action: "view" },
     { user: "Peter", action: "login" },
     { user: "Anna", action: "logout" },
-    { user: "John", action: "view"
+    { user: "John", action: "view" },
+    { user: "Anna", action: "login" },
+    { user: "Peter", action: "view" },
+    { user: "John", action: "logout" }
+]);
+
+// {
+//     Anna: {
+//         login: 2,
+//         view: 1,
+//         logout: 1
+//     },
+//     John: {
+//         login: 1,
+//         view: 1,
+//         logout: 1
+//     },
+//     Peter: {
+//         login: 1,
+//         view: 1
+//     }
+// }
