@@ -1,5 +1,14 @@
 function updateUserStatus(users, userName, newStatus){
 
+    let userArr = Object.entries(users);
+    for ( let [name, status] of userArr ) {
+        if ( name === userName ) {
+            status.active = newStatus
+            return (name, status)
+        }
+    }
+    
+
 
 }
 updateUserStatus({
