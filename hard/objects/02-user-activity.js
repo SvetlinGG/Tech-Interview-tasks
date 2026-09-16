@@ -1,13 +1,12 @@
 function countUserActions(activities){
 
     let userObj = {};
+    let userAction = {};
 
     for (let user of activities){
-        if (userObj[user.user]){
-            if(user.action === 'login' || user.action === 'logout' || user.action === 'view'){
-                userObj[user.user][user.action] += user.action
-            }
-            
+        if (!userObj[user.user]){
+                userAction[user.action] += 1
+                userObj[user.user] = userAction[user.action]
         }else{
             userObj[user.user] = user.action
         }
