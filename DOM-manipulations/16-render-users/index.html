@@ -25,7 +25,13 @@
         for ( let user of users){
             const createLiElement = document.createElement('li');
             userList.appendChild(createLiElement);
-            createLiElement.textContent = `${user.name} - ${user.age}`
+            createLiElement.textContent = `${user.name} - ${user.age}`;
+
+            if (user.active){
+                createLiElement.classList.add('active')
+            }else{
+                createLiElement.classList.add('inactive')
+            }
         }
     </script>
 </body>
