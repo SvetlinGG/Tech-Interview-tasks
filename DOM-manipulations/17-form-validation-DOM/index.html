@@ -26,28 +26,27 @@
 
 
         const error = document.getElementById('error');
-        const btn = document.getElementsByTagName('button');
+        
 
         userForm.addEventListener('submit', onSubmit);
 
+        name.addEventListener('input', () => error.textContent = '');
+        age.addEventListener('input', () => error.textContent = '');
+
         function onSubmit(e){
+            e.preventDefault();
 
-            e.preventDefault
+            if (name.value.trim() === '' || age.value < 18){
+                error.textContent = 'Invalid user';
+                return;
+            }
 
-        if ( name.value.trim() === '' || age.value < 18){
-            return
-        }else {
-            error.textContent = 'Invalid user';
-        }
+            const createLiElement = document.createElement('li');
+            createLiElement.textContent = `${name.value} - ${age.value}`;
+            userList.appendChild(createLiElement);
 
-        const createLiElement = document.createElement('li');
-        createLiElement.textContent = `${name.value} - ${age.value}`;
-
-        userList.appendChild(createLiElement);
-        
-
-
-
+            name.value = '';
+            age.value = '';
         }
 
 
