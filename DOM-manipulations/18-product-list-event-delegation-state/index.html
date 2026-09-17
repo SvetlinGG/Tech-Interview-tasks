@@ -6,7 +6,10 @@
     <title>Product List + Event Delegation + State</title>
 </head>
 <body>
-    <ul id="productList"></ul>
+    <ul id="productList">
+         <li><button data-id="1">Add to cart</button></li>   
+        
+    </ul>
 
     <p id="cartCount">Cart: 0</p>
 
@@ -16,6 +19,23 @@
     { id: 2, name: "Mouse", price: 40, inCart: false },
     { id: 3, name: "Monitor", price: 300, inCart: false }
 ];
+
+        const productList = document.getElementById('productList');
+        const counter = document.getElementById('cartCount');
+        const btn = document.getElementsByTagName('button')
+
+        productList.addEventListener('click', onClick);
+
+        function onClick(e){
+            counter.textContent = Number(counter.value);
+            const liElement = document.createElement('li')
+            productList.appendChild(liElement)
+            for ( let product of products){
+                liElement.textContent = `${product.name} - $${product.price}  `
+                counter ++
+            }
+        }
+
 
 
     </script>
