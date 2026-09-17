@@ -7,7 +7,7 @@
 </head>
 <body>
     <ul id="productList">
-         <button data-id="1">Add to cart</button>   
+            
         
     </ul>
 
@@ -27,15 +27,19 @@
         for ( let product of products){
                 const liElement = document.createElement('li');
                 productList.appendChild(liElement);
-                liElement.textContent = `${product.name} - $${product.price}` 
+                liElement.textContent = `${product.name} - $${product.price}`;
+                const createBtn = document.createElement('button');
+                createBtn.textContent = 'Add to cart';
+                createBtn.setAttribute('data-id', product.id);
+                liElement.appendChild(createBtn);
+                productList.appendChild(liElement)
             }
 
         productList.addEventListener('click', onClick);
 
         function onClick(e){
             
-            // const liElement = document.createElement('li');
-            // productList.appendChild(liElement);
+            
             
 
 
