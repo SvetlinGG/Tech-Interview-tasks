@@ -30,7 +30,7 @@
                 liElement.textContent = `${product.name} - $${product.price}`;
                 const createBtn = document.createElement('button');
                 createBtn.textContent = 'Add to cart';
-                createBtn.setAttribute('data-id', product.id);
+                createBtn.dataset.id = product.id;
                 liElement.appendChild(createBtn);
                 productList.appendChild(liElement)
             }
