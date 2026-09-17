@@ -22,21 +22,24 @@
 
         const productList = document.getElementById('productList');
         const counter = document.getElementById('cartCount');
-        const btn = document.getElementsByTagName('button')
+        
+
+        for ( let product of products){
+                const liElement = document.createElement('li');
+                productList.appendChild(liElement);
+                liElement.textContent = `${product.name} - $${product.price}` 
+            }
 
         productList.addEventListener('click', onClick);
 
         function onClick(e){
             
-            const liElement = document.createElement('li');
-            productList.appendChild(liElement);
+            // const liElement = document.createElement('li');
+            // productList.appendChild(liElement);
             
 
 
-            for ( let product of products){
-                liElement.textContent = `${product.name} - $${product.price}  `+ btn
-                counter.textContent = 'Cart: ' + product.id
-            }
+            
         }
 
 
