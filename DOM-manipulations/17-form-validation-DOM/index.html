@@ -7,5 +7,52 @@
 </head>
 <body>
     
+    <form id="userForm">
+        <input id="nameInput" type="text" placeholder="Name">
+        <input id="ageInput" type="number" placeholder="Age">
+        <button type="submit">Add User</button>
+    </form>
+
+    <p id="error"></p>
+
+    <ul id="userList"></ul>
+
+    <script>
+        const userForm = document.getElementById('userForm');
+        const userList = document.getElementById('userList');
+
+        const name = document.getElementById('nameInput');
+        const age = document.getElementById('ageInput');
+
+
+        const error = document.getElementById('error');
+        const btn = document.getElementsByTagName('button');
+
+        userForm.addEventListener('submit', onSubmit);
+
+        function onSubmit(e){
+
+            e.preventDefault
+
+        if ( name.value.trim() === '' || age.value < 18){
+            return
+        }else {
+            error.textContent = 'Invalid user';
+        }
+
+        const createLiElement = document.createElement('li');
+        createLiElement.textContent = `${name.value} - ${age.value}`;
+
+        userList.appendChild(createLiElement);
+        
+
+
+
+        }
+
+
+
+
+    </script>
 </body>
 </html>
