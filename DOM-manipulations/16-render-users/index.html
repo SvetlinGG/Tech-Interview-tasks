@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Render Users</title>
+</head>
+<body>
+    <h2>Users:</h2>
+
+    <ul id="userList"></ul>
+
+    <script>
+        const users = [
+    { name: "Anna", age: 28, active: true },
+    { name: "John", age: 34, active: false },
+    { name: "Peter", age: 25, active: true },
+    { name: "Maria", age: 31, active: false }
+];
+
+        const userList = document.getElementById('userList');
+        // const createLiElement = document.createElement('li');
+        // userList.appendChild(createLiElement);
+
+        for ( let user of users){
+            const createLiElement = document.createElement('li');
+            userList.appendChild(createLiElement);
+            createLiElement.textContent = `${user.name} - ${user.age}`
+        }
+    </script>
+</body>
+</html>
