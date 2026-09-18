@@ -13,7 +13,7 @@
 
     <ul id="userList"></ul>
 
-    <p id="activeCount">Active: 1</p>
+    <p id="activeCount">Active: 0</p>
 
     <script>
 
@@ -25,47 +25,71 @@
         const userForm = document.getElementById('userForm');
         const userList = document.getElementById('userList');
         const activeCount = document.getElementById('activeCount');
-
         const newUser = document.getElementById('nameInput');
 
-        for ( let user of users){
+        function updateActiveCount(){
+            const count = users.filter(u => u.active).length;
+            activeCount.textContent = `Active: ${count}`;
+        }
+
+        function createLi(user){
             const liElement = document.createElement('li');
-            liElement.textContent = `${user.name}`
+            liElement.dataset.id = user.id;
+            liElement.textContent = `${user.name} `;
+
             const createBtnAct = document.createElement('button');
+            createBtnAct.textContent = user.active ? 'Deactivate' : 'Activate';
+            createBtnAct.dataset.action = 'toggle';
+
             const createBtnDelete = document.createElement('button');
-
-            if ( user.active === true){
-                createBtnAct.textContent = 'Deactivate';
-            }else if(user.active === false){
-                createBtnAct.textContent = 'Activate';
-            }
             createBtnDelete.textContent = 'Delete';
-            
+            createBtnDelete.dataset.action = 'delete';
 
-            userList.appendChild(liElement);
             liElement.appendChild(createBtnAct);
             liElement.appendChild(createBtnDelete);
-            
+            userList.appendChild(liElement);
         }
 
-        userForm.addEventListener('click', onClick);
+        for (let user of users){
+            createLi(user);
+        }
+        updateActiveCount();
 
-        function onClick(e){
-            e.preventDefault();
+        userList.addEventListener('click', (e) => {
             if (e.target.tagName !== 'BUTTON') return;
-            
-            if (name.value.trim() === ''){
-                return;
+
+            const li = e.target.closest('li');
+            const id = Number(li.dataset.id);
+            const user = users.find(u => u.id === id);
+
+            if (e.target.dataset.action === 'toggle'){
+                user.active = !user.active;
+                e.target.textContent = user.active ? 'Deactivate' : 'Activate';
+                updateActiveCount();
             }
 
-            let newUser = {
-                id,
-                name: '',
+            if (e.target.dataset.action === 'delete'){
+                users.splice(users.indexOf(user), 1);
+                li.remove();
+                updateActiveCount();
+            }
+        });
+
+        userForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (newUser.value.trim() === '') return;
+
+            const newUserObj = {
+                id: Date.now(),
+                name: newUser.value.trim(),
                 active: false
-            }
+            };
 
-
-        }
+            users.push(newUserObj);
+            createLi(newUserObj);
+            updateActiveCount();
+            newUser.value = '';
+        });
 
 
     </script>
