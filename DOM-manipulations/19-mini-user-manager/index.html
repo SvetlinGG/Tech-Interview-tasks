@@ -30,10 +30,15 @@
             const liElement = document.createElement('li');
             liElement.textContent = `${user.name}`
             const createBtnAct = document.createElement('button');
-            createBtnAct.textContent = 'Activate';
-
             const createBtnDelete = document.createElement('button');
+
+            if ( user.active === true){
+                createBtnAct.textContent = 'Deactivate';
+            }else if(user.active === false){
+                createBtnAct.textContent = 'Activate';
+            }
             createBtnDelete.textContent = 'Delete';
+            
 
             userList.appendChild(liElement);
             liElement.appendChild(createBtnAct);
