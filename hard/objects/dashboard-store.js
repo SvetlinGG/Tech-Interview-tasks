@@ -11,21 +11,19 @@ function getCustomerSummary(customers){
     //         totalSpent: totalSpent
     //     };
     // });
-
-    let customerObj = {
-        name,
-        completedOrders,
-        totalSpent
-    };
+    let generalObj = {};
+    let customerObj = {};
 
     for ( let customer of customers){
         for ( let order of customer.orders){
-            if (order.status === 'completed' && order.total){
-                customerObj[completedOrders] ++;
+            if (order.status === 'completed'){
+                customerObj[completedOrders]  = order.status.map(el => el.length)
                 customerObj[totalSpent] += order.total;
             }
         }
     }
+    console.log(customerObj[completedOrders]);
+    
 
 
 }
