@@ -1,5 +1,17 @@
 function getCustomerSummary(customers){
 
+    let customerSummary = customers.map(customer => {
+        let completedOrders = customer.orders.filter(order => order.status === "completed").length;
+        let totalSpent = customer.orders
+            .filter(order => order.status === "completed")
+            .reduce((sum, order) => sum + order.total, 0);
+        return {
+            name: customer.name,
+            completedOrders: completedOrders,
+            totalSpent: totalSpent
+        };
+    });
+
 
 }
 getCustomerSummary([
