@@ -17,8 +17,10 @@ function getCustomerSummary(customers){
     for ( let customer of customers){
         for ( let order of customer.orders){
             if (order.status === 'completed'){
-                customerObj[completedOrders]  = order.status.map(el => el.length)
-                customerObj[totalSpent] += order.total;
+                if (!customerObj){ 
+                    customerObj.completedOrders = completedOrders;
+                    customerObj.completedOrders  += order.status;
+                }
             }
         }
     }
