@@ -22,7 +22,26 @@
         { id: 2, name: "John", active: false }
         ];
 
-        
+        const userForm = document.getElementById('userForm');
+        const userList = document.getElementById('userList');
+        const activeCount = document.getElementById('activeCount');
+
+        for ( let user of users){
+            const liElement = document.createElement('li');
+            liElement.textContent = `${user.name}`
+            const createBtnAct = document.createElement('button');
+            createBtnAct.textContent = 'Activate';
+
+            const createBtnDelete = document.createElement('button');
+            createBtnDelete.textContent = 'Delete';
+
+            userList.appendChild(liElement);
+            liElement.appendChild(createBtnAct);
+            liElement.appendChild(createBtnDelete);
+            
+        }
+
+
     </script>
 </body>
 </html>
