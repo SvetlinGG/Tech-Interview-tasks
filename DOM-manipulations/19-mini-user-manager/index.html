@@ -26,6 +26,8 @@
         const userList = document.getElementById('userList');
         const activeCount = document.getElementById('activeCount');
 
+        const newUser = document.getElementById('nameInput');
+
         for ( let user of users){
             const liElement = document.createElement('li');
             liElement.textContent = `${user.name}`
@@ -44,6 +46,25 @@
             liElement.appendChild(createBtnAct);
             liElement.appendChild(createBtnDelete);
             
+        }
+
+        userForm.addEventListener('click', onClick);
+
+        function onClick(e){
+            e.preventDefault();
+            if (e.target.tagName !== 'BUTTON') return;
+            
+            if (name.value.trim() === ''){
+                return;
+            }
+
+            let newUser = {
+                id,
+                name: '',
+                active: false
+            }
+
+
         }
 
 
