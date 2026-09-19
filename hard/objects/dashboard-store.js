@@ -11,19 +11,24 @@ function getCustomerSummary(customers){
     //         totalSpent: totalSpent
     //     };
     // });
-    let generalObj = {};
+    
     let customerObj = {};
 
     for ( let customer of customers){
+        customerObj.name = customer.name
         for ( let order of customer.orders){
+            let completedOrders = customer.orders.filter(order => order.status === "completed").length;
             if (order.status === 'completed'){
-                if (customerObj.completedOrders){ 
-                    customerObj.completedOrders  += order.status;
-                }
+                
+                let totalSpent = customer.orders.filter(order => order.status === "completed").reduce((sum, order) => sum + order.total, 0);
+                
+                customerObj.completedOrders = completedOrders
+                customerObj.totalSpent = totalSpent
             }
         }
     }
-    console.log(customerObj[completedOrders]);
+    console.log(customerObj);
+    
     
 
 
