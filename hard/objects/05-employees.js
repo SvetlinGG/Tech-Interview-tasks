@@ -1,31 +1,21 @@
 function getDepartmentStats(employees){
 
     let departmentObj = {};
-    let employeeObj = {};
 
-    for ( let employee of employees){
+    for (let employee of employees){
         
-        if ( employee.department && employee.active === true){
+        if (employee.department && employee.active === true){
 
             if (!departmentObj[employee.department]){
-                employeeObj = {employees: 0, totalSalary: 0 };
-                employeeObj.employees ++ ;
-                employeeObj.totalSalary += employee.salary;
-            }else {
-                departmentObj[employee.department].employees ++ ;
-                departmentObj[employee.department].totalSalary += employee.salary;
+                departmentObj[employee.department] = {employees: 0, totalSalary: 0};
             }
-            
-            
+            departmentObj[employee.department].employees++;
+            departmentObj[employee.department].totalSalary += employee.salary;
         }
-        departmentObj[employee.department] = employeeObj
     }
     console.log(departmentObj);
-    
-
-
-
 }
+
 getDepartmentStats([
     { id: 1, name: "Anna", department: "IT", salary: 3200, active: true },
     { id: 2, name: "John", department: "Sales", salary: 2800, active: true },
