@@ -1,5 +1,23 @@
 function getDepartmentStats(employees){
 
+    let generalObj = {};
+    let departmentObj = {};
+    let arr = [];
+    
+
+    for ( let employee of employees){
+        departmentObj = {employees: 0, totalSalary: 0 }
+        //let employeeStatus = employee.active.filter(active => active === true).lengthg;
+        if ( employee.department === 'IT' && employee.active === true){
+            departmentObj.employees ++
+            departmentObj.totalSalary += employee.salary
+            arr.push(employee.active)
+            console.log(departmentObj);
+            
+        }
+        
+    }
+
 
 
 
