@@ -2,18 +2,20 @@ function getDepartmentStats(employees){
 
     let departmentObj = {};
     let employeeObj = {};
-    
-    
 
     for ( let employee of employees){
-        employeeObj = {employees: 0, totalSalary: 0 };
         
-        //let employeeStatus = employee.active.filter(active => active === true).lengthg;
         if ( employee.department && employee.active === true){
 
-            //let totalSalary = employee.salary.reduce((sum, salary) => sum + salary, 0)
-            employeeObj.employees ++ ;
-            employeeObj.totalSalary += employee.salary;
+            if (!departmentObj[employee.department]){
+                employeeObj = {employees: 0, totalSalary: 0 };
+                employeeObj.employees ++ ;
+                employeeObj.totalSalary += employee.salary;
+            }else {
+                //return;
+                employeeObj.employees ++ ;
+                employeeObj.totalSalary += employee.salary;
+            }
             
             
         }
