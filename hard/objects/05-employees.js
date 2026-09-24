@@ -12,8 +12,8 @@ function getDepartmentStats(employees){
                 employeeObj.employees ++ ;
                 employeeObj.totalSalary += employee.salary;
             }else {
-                departmentObj.employees ++ ;
-                departmentObj.totalSalary += employee.salary;
+                departmentObj[employee.department].employees ++ ;
+                departmentObj[employee.department].totalSalary += employee.salary;
             }
             
             
