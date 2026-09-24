@@ -12,22 +12,33 @@ function getCustomerSummary(customers){
     //     };
     // });
     
-    let customerObj = {};
+    // let customerObj = [
+    // {
+    //     name: name,
+    //     completedOrders: completedOrders,
+    //     totalSpent: totalSpent
+    // }
+    // ]
+
+    let generalObj = {};
+    let customerObj = {}
 
     for ( let customer of customers){
-        customerObj.name = customer.name
+        customerObj = { name: customer.name, completedOrders: 0, totalSpent: 0 };
         for ( let order of customer.orders){
             let completedOrders = customer.orders.filter(order => order.status === "completed").length;
             if (order.status === 'completed'){
                 
                 let totalSpent = customer.orders.filter(order => order.status === "completed").reduce((sum, order) => sum + order.total, 0);
                 
-                customerObj.completedOrders = completedOrders
-                customerObj.totalSpent = totalSpent
+                customerObj.name = order.name
+                customerObj.completedOrders ++
+                customerObj.totalSpent += order.total
             }
         }
+        generalObj[customer.name] = customerObj;
     }
-    console.log(customerObj);
+    return generalObj;
     
     
 
