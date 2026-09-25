@@ -1,18 +1,20 @@
 function getSalesByCategory(sales){
 
-    let sales = {};
+    let salesObj = {};
 
     for ( let sale of sales){
 
-        if (!sales[sale.category]){
-            sales[sale.category] = {salesCount: 0, revenue: 0};
-
-            sales[sale.category].salesCount++;
-
-            sales[sale.category].revenue += sale.amount;
-
+        if (!salesObj[sale.category]){
+            salesObj[sale.category] = {salesCount: 0, revenue: 0};
+            salesObj[sale.category].salesCount++;
+            salesObj[sale.category].revenue += sale.amount;
         }
+
+        salesObj[sale.category].salesCount++;
+        salesObj[sale.category].revenue += sale.amount;
     }
+    console.log(salesObj);
+    
 
 
 }
