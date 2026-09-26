@@ -3,16 +3,16 @@ function getSalesByCategory(sales){
     let salesObj = {};
 
     for ( let sale of sales){
-
-        if (!salesObj[sale.category]){
-            salesObj[sale.category] = {salesCount: 0, revenue: 0};
+        if (sale.completed === true){
+            if (!salesObj[sale.category]){
+                salesObj[sale.category] = {salesCount: 0, revenue: 0};
+                //salesObj[sale.category].salesCount++;
+                //salesObj[sale.category].revenue += sale.amount;
+            }
             salesObj[sale.category].salesCount++;
             salesObj[sale.category].revenue += sale.amount;
-        }
-
-        salesObj[sale.category].salesCount++;
-        salesObj[sale.category].revenue += sale.amount;
     }
+}
     console.log(salesObj);
     
 
