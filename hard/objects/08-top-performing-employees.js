@@ -1,5 +1,19 @@
 function getTopEmployees(employees, minProjects, minRating){
 
+    let result = [];
+    let employeeObj = {};
+
+    for ( let employee of employees){
+
+        if ( employee.active === true && employee.projects >= minProjects && employee.rating >= minRating){
+            employeeObj = {name: employee.name, projects: employee.projects, rating: employee.rating};
+            
+            result.push(employeeObj);
+        }
+    }
+    console.log(result);
+    
+
 
 }
 getTopEmployees([
