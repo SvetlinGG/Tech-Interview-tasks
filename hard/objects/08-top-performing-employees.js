@@ -11,7 +11,13 @@ function getTopEmployees(employees, minProjects, minRating){
             result.push(employeeObj);
         }
     }
-    console.log(result);
+    console.log(result.sort((a, b) => {
+        if (a.rating === b.rating){
+            return b.projects - a.projects
+        }else {
+            return b.rating - a.rating
+        }
+    }))
     
 
 
