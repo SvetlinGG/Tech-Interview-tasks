@@ -6,19 +6,18 @@ function getCustomerReport(orders, minTotal) {
 
     for ( let order of orders){
         
-        if (order.customer && order.status === 'completed') {
-            customerReport[order.customer] = {
-            ordersCount: 0,
-            totalSpent: 0
-    };
-        if (!customerReport[order.customer]) {
-    // initialize
-            customerReport[order.customer].ordersCount += 1;
-            customerReport[order.customer].totalSpent += order.total;
+            if (order.status === 'completed') {
+                
+                if (!customerReport[order.customer]) {
+                customerReport[order.customer] = {
+                ordersCount: 0,
+                totalSpent: 0
+                };
+            }
+                customerReport[order.customer].ordersCount += 1;
+                customerReport[order.customer].totalSpent += order.total;
         }
-            
-}
-        
+         
     }
     console.log(customerReport);
     
