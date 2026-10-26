@@ -1,6 +1,26 @@
 function getCustomerReport(orders, minTotal) {
     // your solution
 
+    let customerReport = {
+        customer: "",
+        ordersCount: 0,
+        totalSpent: 0
+    }
+    
+
+    for ( let order of orders){
+        if (order.customer.includes(customerReport.customer) && order.status === 'completed' && order.total){
+            customerReport.customer = order.customer
+            customerReport.ordersCount ++
+            customerReport.totalSpent += order.total
+        }
+        
+    }
+
+    console.log(customerReport);
+    
+
+
 }
 
 getCustomerReport([
@@ -13,3 +33,18 @@ getCustomerReport([
     { id: 7, customer: "Peter", total: 90, status: "cancelled" },
     { id: 8, customer: "Maria", total: 100, status: "completed" }
 ], 300)
+
+// expected output 
+// [
+//     { customer: "John", ordersCount: 2, totalSpent: 400 },
+//     { customer: "Maria", ordersCount: 2, totalSpent: 400 },
+//     { customer: "Anna", ordersCount: 2, totalSpent: 320 }
+// ]
+
+// Изисквания
+// 1. Използвай само поръчките със status === "completed".
+// 2. Групирай поръчките по customer.
+// 3. Изчисли ordersCount и totalSpent за всеки клиент.
+// 4. Включи само клиентите с totalSpent >= minTotal.
+// 5. Сортирай по totalSpent descending. При равни суми сортирай по customer alphabetically.
+// 6. Не променяй оригиналния масив.
