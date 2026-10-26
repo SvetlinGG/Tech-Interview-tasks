@@ -9,4 +9,5 @@ function activateUser(users, id){
         }
     }) 
 
-    retu
+    return
+}
