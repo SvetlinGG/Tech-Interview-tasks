@@ -19,7 +19,7 @@ function getCustomerReport(orders, minTotal) {
         }
          
     }
-    console.log(customerReport);
+    return customerReport;
     
     
 
