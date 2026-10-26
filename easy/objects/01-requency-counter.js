@@ -16,3 +16,6 @@ function countFruits(fruits) {
 
 }
 countFruits(["apple", "banana", "apple", "orange", "banana", "apple", "kiwi"])
+
+// expected output :
+// {apple: 3, banana: 2, orange: 1, kiwi: 1}
