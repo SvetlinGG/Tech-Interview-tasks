@@ -12,19 +12,17 @@ function getCategoryReport(products){
             }
             result[product.category].count ++
             result[product.category].total += product.price
-            result[product.category].averagePrice = result[product.category].total / result[product.category].count
+            //result[product.category].averagePrice = result[product.category].total / result[product.category].count
         }
 
-        let key = Object.entries(result);
-        console.log(key[1]);
-        console.log(key[1]);
-        console.log(key[1]);
+    for (let [category, data] of Object.entries(result)) {
+        result[category].averagePrice = data.total / data.count
+        console.log(data);
         
-        
-    }
+}
 
 
-
+}
 getCategoryReport([
     { category: "food", price: 10 },
     { category: "tech", price: 200 },
