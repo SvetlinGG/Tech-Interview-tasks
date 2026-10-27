@@ -7,8 +7,12 @@ function solve(){
         notifications: true
     }
 };
-    console.log(user);
-    
+    let updatedUser = {...user};
 
+    updatedUser.name = 'Maria';
+    updatedUser.settings.theme = 'dark'
+    
+    console.log(updatedUser.settings);
+    
 }
 solve()
