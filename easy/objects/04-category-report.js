@@ -17,7 +17,7 @@ function getCategoryReport(products){
 
     for (let [category, data] of Object.entries(result)) {
         result[category].averagePrice = data.total / data.count
-        console.log(data);
+        return data;
         
 }
 
