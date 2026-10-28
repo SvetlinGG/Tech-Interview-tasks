@@ -1,7 +1,17 @@
 function getMostExpensiveByCategory(products){
 
+    let result = {};
 
+    for ( let product of products) {
+        if (!result[product.category] || result[product.category].price < product.price ){
 
+            result[product.category] = product;
+        }
+
+    }
+    return result
+    
+    
 }
 getMostExpensiveByCategory([
     { id: 1, name: "Laptop", category: "Electronics", price: 1200 },
