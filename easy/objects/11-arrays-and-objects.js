@@ -1,5 +1,20 @@
 function groupUsersByDepartment(users){
 
+    let result = {};
+
+    for ( let user of users){
+        if (!result[user.department] ){
+            result[user.department] = [];
+        }
+
+        result[user.department].push(user.name);
+    }
+
+    return result;
+
+    
+    
+
 
 
 }
