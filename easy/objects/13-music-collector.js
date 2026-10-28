@@ -1,8 +1,53 @@
 function getFilteredAlbums(albums, artistName) {
 
+    // let result = {};
+
+    // for ( let album of albums){
+    //     if (!result[album.artist]){
+    //         if (album.liked === true){
+    //         result[album.artist] = { albums: album.title, year: album.year }
+            
+    //     }
+    //     }
+        
+    // }
+
+    // let items = Object.entries(result);
+
+    // for ( let [key, value] of items){
+    //     let yearItem = Object.entries(value).sort((a, b) => a.year - b.year);
+
+    //     for ( let [key, value] of yearItem){
+    //         console.log(key, value);
+            
+    //     }
+    // }
+     let result = {};
+
+    albums.sort((a, b) => b.year - a.year); // sort newest first
+
+    for (let album of albums) {
+        if (!result[album.artist]) {
+            if (album.liked === true) {
+                result[album.artist] = { albums: album.title, year: album.year };
+            }
+        }
+    }
+
+    let items = Object.entries(result);
+    let arr = [];
+    for (let [key, value] of items) {
+        let yearItem = Object.entries(value);
+
+        for (let [key, value] of yearItem) {
+            console.log(key, value)
+        }
+    }
+}
+
 
     
-}
+
 getFilteredAlbums([
     { id: 1, title: "The Wall", artist: "Pink Floyd", year: 1979, liked: true },
     { id: 2, title: "Master of Puppets", artist: "Metallica", year: 1986, liked: false },
