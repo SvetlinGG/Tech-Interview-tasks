@@ -1,16 +1,18 @@
 function getTotalSpentByUser(orders){
 
-    let resut = {};
+    let result = {};
 
     for (let order of orders){
-        if(!result){
+        if(!result[order.userId]){
             if ( order.status === 'completed'){
-                result[order.userId] = order.amount;
+                result[order.userId] = 0;
             }
+            
         }
         result[order.userId] += order.amount;
     }
 
+    return result;
     
 
 
