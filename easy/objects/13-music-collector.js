@@ -1,27 +1,13 @@
 function getFilteredAlbums(albums, artistName) {
 
-    let result = {};
+    
 
     for ( let album of albums){
-        if (!result[album.artist]){
-            if (album.liked === true){
-            result[album.artist] = { albums: album.title, year: album.year }
-            
-        }
-        }
+        
         
     }
 
-    let items = Object.entries(result);
-
-    for ( let [key, value] of items){
-        let yearItem = Object.entries(value).sort((a, b) => a.year - b.year);
-
-        for ( let [key, value] of yearItem){
-            console.log(key, value);
-            
-        }
-    }
+    
     
 }
 getFilteredAlbums([
