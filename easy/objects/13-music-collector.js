@@ -1,17 +1,10 @@
 function getFilteredAlbums(albums, artistName) {
 
-    let arr = [];
-    let newArr = []
-
-    for ( let album of albums){
-        if ( album.liked === true && Math.max(album.year)){
+    
+            let latest = albums.reduce((max, item) => (item.year > max.year ? item : max))
+            console.log(latest);
             
-            console.log(album);
-            
-        }
         
-        
-    }
 
     //console.log(newArr.shift());
     
