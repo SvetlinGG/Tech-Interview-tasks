@@ -4,10 +4,17 @@ function removeDuplicateAlbums(albums) {
     let arr = [];
 
     for ( let album of albums){
-        console.log(album);
+        if (!result[album.title + album.artist] ){
+            result[album.title + album.artist] = true;
+            arr.push(album);
+        }
         
     }
-   
+   //console.log(arr);
+    for ( let item of arr){
+        console.log(item);
+        
+    }
 
 
 }
