@@ -12,7 +12,7 @@ function getArtistStats(albums) {
                 result[album.artist].totalAlbums++;
             if (album.liked) 
                 result[album.artist].likedAlbums++;
-                result[album.artist].latestYear = album.year;
+                
 
             if (album.year > result[album.artist].latestYear){
                 result[album.artist].latestYear = album.year;
@@ -20,13 +20,8 @@ function getArtistStats(albums) {
 
 
         }
-        console.log(result);
+        return result;
         
-
-    for (let [key, value] of Object.entries(result)){
-        console.log(key, value);
-        
-    }
                 
 }
 getArtistStats([
