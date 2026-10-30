@@ -21,4 +21,4 @@ getFilteredAlbums([
     { id: 3, title: "Back in Black", artist: "AC/DC", year: 1980, liked: true },
     { id: 4, title: "Ride the Lightning", artist: "Metallica", year: 1984, liked: true },
     { id: 5, title: "The Dark Side of the Moon", artist: "Pink Floyd", year: 1973, liked: false }
-], "pink floyd")
+], "")
