@@ -1,4 +1,12 @@
 function removeDuplicateAlbums(albums) {
+
+    let result = {};
+    let arr = [];
+
+    for ( let album of albums){
+        console.log(album);
+        
+    }
    
 
 
