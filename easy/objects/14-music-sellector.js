@@ -2,15 +2,17 @@ function getArtistStats(albums) {
     let result = {};
 
     for ( let album of albums){
-        if (!result[album.artist] && album.liked === true){
+        if (!result[album.artist]){
             result[album.artist] = {
                 totalAlbums: 0,
-                likedAlbums: 0,
                 latestYear: 0
             }
-        }       
-                result[album.artist].totalAlbums++
-                result[album.artist].likedAlbums++
+        }     
+        if (album.liked)  {
+            result[album.artist].likedAlbums = 0
+        }
+                result[album.artist].totalAlbums ++
+                result[album.artist].likedAlbums ++
                 result[album.artist].latestYear = album.year
             
     }
