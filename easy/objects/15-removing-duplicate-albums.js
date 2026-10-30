@@ -3,12 +3,13 @@ function removeDuplicateAlbums(albums) {
     const seen = new Set()
     let arr = [];
 
-    const seen = new Set();
+    
 
 for (let album of albums){
-    if (!seen.has(album.artist)){
+    if (!seen.has(album.artist) || !seen.has(album.title) ){
         seen.add(album.artist);
-        arr.push(seen)
+        seen.add(album.title);
+        arr.push(album)
     }
 }
 
