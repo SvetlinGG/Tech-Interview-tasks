@@ -3,27 +3,31 @@ function getArtistStats(albums) {
 
     for ( let album of albums){
         if (!result[album.artist]){
-            result[album.artist] = {
-                totalAlbums: 0,
-                latestYear: 0
+            result[album.artist] = { 
+                totalAlbums: 0, 
+                likedAlbums: 0, 
+                latestYear: 0 
+            };
             }
-        }     
-        if (album.liked)  {
-            result[album.artist].likedAlbums = 0
+                result[album.artist].totalAlbums++;
+            if (album.liked) 
+                result[album.artist].likedAlbums++;
+                result[album.artist].latestYear = album.year;
+
+            if (album.year > result[album.artist].latestYear){
+                result[album.artist].latestYear = album.year;
+            }
+
+
         }
-                result[album.artist].totalAlbums ++
-                result[album.artist].likedAlbums ++
-                result[album.artist].latestYear = album.year
-            
-    }
+        console.log(result);
+        
 
     for (let [key, value] of Object.entries(result)){
         console.log(key, value);
         
     }
-    
-
-
+                
 }
 getArtistStats([
     { id: 1, title: "The Wall", artist: "Pink Floyd", year: 1979, liked: true },
