@@ -1,8 +1,18 @@
 function getAvailableSlots(slots, date){
 
+  let result = []
 
+  for ( let slot of slots){
+      if (slot.status === 'available' && slot.date === '2026-11-20'){
+        result.push(slot)
+        result.sort((a, b) => a.time.localeCompare(b.time))
+      }
+    }
 
-}
+    console.log(result);
+    
+  }
+ 
 getAvailableSlots([
   { id: 1, date: "2026-11-20", time: "14:00", status: "available" },
   { id: 2, date: "2026-11-20", time: "10:00", status: "booked" },
