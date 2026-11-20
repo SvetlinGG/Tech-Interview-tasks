@@ -1,5 +1,18 @@
 function updateAlbum(collection, albumId, action){
 
+    let result = [];
+
+    for ( let item of collection){
+        if (item.liked === true){
+            item.liked = false;
+            item.plays = Number(item.plays) + 1;
+            result.push(item);
+        }
+        
+    }
+    return result;
+    
+
 
 }
 updateAlbum([
