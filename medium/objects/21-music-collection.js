@@ -1,21 +1,28 @@
 function updateAlbum(collection, albumId, action){
 
-    let result = [];
+    let arr = [];
+    let result = {
+        albumId,
+        title,
+        action,
+        plays
+    }; 
 
     for ( let item of collection){
-        if (item.liked === true){
-            item.liked = false;
-            item.plays = Number(item.plays) + 1;
-            result.push(item);
-        }else if (item.liked === false){
-            item.liked = true;
-            result.push(item)
+        if ( item.id === albumId && item.title === title && item.liked === action && item.plays === plays ){
+            if ( item.liked === true){
+                item.liked = false;
+                item.plays = Number(item.plays) + 1;
+                arr.push(result)
+            }else if ( item.liked === false){
+                item.liked = true;
+                result.push(result);
+            }
         }
         
     }
-    console.log(result[0]);
-    console.log(result[1]);
-    console.log(result[2]);
+    
+    console.log(result);
     
 
 
