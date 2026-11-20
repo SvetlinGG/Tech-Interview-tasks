@@ -7,10 +7,15 @@ function updateAlbum(collection, albumId, action){
             item.liked = false;
             item.plays = Number(item.plays) + 1;
             result.push(item);
+        }else if (item.liked === false){
+            item.liked = true;
+            result.push(item)
         }
         
     }
-    return result;
+    console.log(result[0]);
+    console.log(result[1]);
+    console.log(result[2]);
     
 
 
