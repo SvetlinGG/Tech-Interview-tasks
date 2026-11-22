@@ -1,17 +1,18 @@
 function transformAlbums(albums) {
   
     let result = [];
-    let longestTrack = null;
+    let longestTrackName = null;
     let totalDuration = 0;
     let longestSong;
 
     for (let item of albums){
+        const maxDuration = Math.max(...item.tracks.map(t => t.duration));
             for ( let tracks of item.tracks){
                 totalDuration = item.tracks.reduce((acc, curr) => acc += curr.duration, 0);
-                longestSong = item.tracks.map(t => t.duration)
-                
-                
-                
+                // longestSong = item.tracks.map(t => t.duration)
+                // longestTrackName = Math.max(...longestSong);
+                //if (tracks.duration === longestTrackName ) longestTrackName = tracks.title
+                if (tracks.duration === maxDuration) longestTrackName = tracks.title;
             }
 
                     result.push({
@@ -20,19 +21,14 @@ function transformAlbums(albums) {
                     artist: item.artist,
                     trackCount: item.tracks.length,
                     totalDuration,
-                    longestTrack: Math.max(...longestSong)
+                    longestTrack: longestTrackName
                 })
-                    
-                
-                    
-            
+                   
     }
-     console.log(result[0])
-     console.log(result[1])
-     console.log(result[2])
-    
-    
-
+     console.log(result[0].longestTrack)
+     console.log(result[1].longestTrack)
+     console.log(result[2].longestTrack)
+     
 }
 transformAlbums([
     {
