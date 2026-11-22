@@ -1,0 +1,74 @@
+function transformAlbums(albums) {
+  
+    
+
+}
+transformAlbums([
+    {
+        id: 1,
+        title: "The Wall",
+        artist: "Pink Floyd",
+        tracks: [
+            { title: "Another Brick in the Wall", duration: 240 },
+            { title: "Mother", duration: 330 },
+            { title: "Hey You", duration: 280 }
+        ]
+    },
+    {
+        id: 2,
+        title: "Master of Puppets",
+        artist: "Metallica",
+        tracks: [
+            { title: "Battery", duration: 312 },
+            { title: "Master of Puppets", duration: 515 }
+        ]
+    },
+    {
+        id: 3,
+        title: "Back in Black",
+        artist: "AC/DC",
+        tracks: [
+            { title: "Hells Bells", duration: 312 },
+            { title: "Shoot to Thrill", duration: 315 }
+        ]
+    }
+]);
+
+// expected output:
+// [
+//     {
+//         id: 1,
+//         title: "The Wall",
+//         artist: "Pink Floyd",
+//         trackCount: 3,
+//         totalDuration: 850,
+//         longestTrack: "Mother"
+//     },
+//     {
+//         id: 2,
+//         title: "Master of Puppets",
+//         artist: "Metallica",
+//         trackCount: 2,
+//         totalDuration: 827,
+//         longestTrack: "Master of Puppets"
+//     },
+//     {
+//         id: 3,
+//         title: "Back in Black",
+//         artist: "AC/DC",
+//         trackCount: 2,
+//         totalDuration: 627,
+//         longestTrack: "Shoot to Thrill"
+//     }
+// ]
+// Rules
+// - Do not modify the original array or its objects.
+// - Return a new array.
+// - Do not use external libraries.
+// - Handle an album with an empty tracks array: trackCount and totalDuration should be 0, and longestTrack should be null.
+// What I want to evaluate
+// - Array iteration.
+// - Nested data processing.
+// - Accumulators.
+// - Finding maximum values.
+// - Returning transformed objects.
