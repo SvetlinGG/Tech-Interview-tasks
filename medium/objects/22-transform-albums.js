@@ -25,9 +25,8 @@ function transformAlbums(albums) {
                 })
                    
     }
-     console.log(result[0].longestTrack)
-     console.log(result[1].longestTrack)
-     console.log(result[2].longestTrack)
+     return result;
+     
      
 }
 transformAlbums([
