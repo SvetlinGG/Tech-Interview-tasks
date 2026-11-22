@@ -12,24 +12,23 @@ function updateAlbum(collection, albumId, action){
                     action: !item.liked,
                     plays: item.plays + 1
                 }
+                result.push(updatedAlbums)
             }
+            
             }else if (item.liked === false){
                 updatedAlbums = {
                     ...item,
                     action: !item.liked,
+                    
                 }
                 result.push(updatedAlbums)
         }
 
         
     }
-    console.log(result);
-    
-    
-    
-    
-    
-
+    console.log(result[0]);
+    console.log(result[1]);
+ 
 
 }
 updateAlbum([
