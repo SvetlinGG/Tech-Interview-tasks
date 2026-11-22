@@ -1,5 +1,22 @@
 function transformAlbums(albums) {
   
+    let result = [];
+    let longestTrack = null;
+    let totalDuration = 0;
+
+    for (let item of albums){
+                result.push({
+                    id: item.id,
+                    title: item.title,
+                    artist: item.artist,
+                    trackCount: item.tracks.length,
+                    
+                })
+            
+    }
+    console.log(result[0]);
+    console.log(result[1]);
+    console.log(result[2]);
     
 
 }
@@ -33,6 +50,8 @@ transformAlbums([
         ]
     }
 ]);
+// totalDuration: item.tracks.reduce((acc, curr) => acc += curr.duration, 0),
+// longestTrack: tracks.title
 
 // expected output:
 // [
