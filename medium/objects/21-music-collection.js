@@ -1,33 +1,20 @@
 function updateAlbum(collection, albumId, action){
 
     let result = [];
-    let updatedAlbums = {}
     
 
     for ( let item of collection){
-        if ( item.id === albumId ){
-            if (item.liked === true){
-                updatedAlbums = {
-                    ...item,
-                    action: !item.liked,
-                    plays: item.plays + 1
-                }
-                result.push(updatedAlbums)
-            }
-            
-            }else if (item.liked === false){
-                updatedAlbums = {
-                    ...item,
-                    action: !item.liked,
-                    
-                }
-                result.push(updatedAlbums)
+        if ( item.id !== albumId ){
+            result.push({...item})
+        }else if (action === 'like' ){
+            result.push({...item, liked: !item.liked})
+        }else if ( action === 'play'){
+            result.push({...item, plays: Number(item.plays) + 1})
+        }else{
+            result.push({...item})
         }
-
-        
     }
-    console.log(result[0]);
-    console.log(result[1]);
+    return result
  
 
 }
@@ -35,7 +22,7 @@ updateAlbum([
     { id: 1, title: "The Wall", liked: false, plays: 5 },
     { id: 2, title: "Master of Puppets", liked: true, plays: 10 },
     { id: 3, title: "Back in Black", liked: false, plays: 3 }
-]);
+], 2, 'play');
 
 // expected output:
 // Функцията трябва да поддържа две действия:
