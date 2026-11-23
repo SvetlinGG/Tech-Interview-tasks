@@ -7,6 +7,15 @@ function generatePlaylist(albums, options) {
         sortBy: "duration",
         order: "asc"
     };
+
+    for ( let album of albums ){
+        for ( let track of album.tracks ){
+            if (options.minDuration === track.duration){
+                console.log(track);
+                
+            }
+        }
+    }
     
 
 }
@@ -18,7 +27,7 @@ generatePlaylist([
         year: 1979,
         liked: true,
         tracks: [
-            { title: "Another Brick in the Wall", duration: 240 },
+            { title: "Another Brick in the Wall", duration: 250 },
             { title: "Mother", duration: 330 },
             { title: "Hey You", duration: 280 }
         ]
