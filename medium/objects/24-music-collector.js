@@ -1,5 +1,6 @@
-function generatePlaylist(albums, options) {
 
+function generatePlaylist(albums, options) {
+    let result = [];
     options = {
         onlyLiked: true,
         minDuration: 250,
@@ -10,12 +11,22 @@ function generatePlaylist(albums, options) {
 
     for ( let album of albums ){
         for ( let track of album.tracks ){
-            if (options.minDuration === track.duration){
-                console.log(track.title);
-                
+            if ((!options.onlyLiked || album.liked) &&
+                (track.duration >= options.minDuration && track.duration <= options.maxDuration) &&
+                (options.sortBy === "duration" && options.order === "asc")){
+                const chooseAlbums = {
+                    title: track.title,
+                    artist: album.artist,
+                    album: album.title,
+                    duration: track.duration
+                }
+                result.push(chooseAlbums)
             }
         }
     }
+    console.log(result[0]);
+    console.log(result[1]);
+    
     
 
 }
