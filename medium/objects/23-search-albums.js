@@ -1,4 +1,27 @@
 function searchAlbums(albums, filters) {
+
+    let result = [];
+
+         filters = {
+        search: "pink",
+        genre: "Rock",
+        onlyLiked: true,
+        minRating: 4,
+        sortBy: "year"
+        };
+
+        for ( let album of albums){
+            if (album.artist.toLowerCase().includes(filters.search) &&
+                (filters.genre === "" || album.genre === filters.genre) &&
+                (filters.onlyLiked === true || album.liked === filters.onlyLiked) &&
+                (album.rating >= filters.minRating)){
+                    result.push(album)
+                }
+            
+        }
+
+        console.log(result.sort((a, b) => b.year - a.year)[0]);
+        console.log(result.sort((a, b) => b.year - a.year)[1]);
     
     
 
