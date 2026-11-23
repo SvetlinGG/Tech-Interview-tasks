@@ -9,10 +9,11 @@ function searchAlbums(albums, filters) {
         minRating: 4,
         sortBy: "year"
         };
+        const search = filters.search.toLowerCase();
 
         for ( let album of albums){
-            if ((album.artist.toLowerCase().includes(filters.search)) ||
-                (album.artist.toLowerCase().includes(filters.search)) &&
+            if ((album.title.toLowerCase().includes(search)) ||
+                (album.artist.toLowerCase().includes(search)) &&
                 (filters.genre === "" || album.genre === filters.genre) &&
                 (!filters.onlyLiked || album.liked ) &&
                 (album.rating >= filters.minRating)){
@@ -21,8 +22,8 @@ function searchAlbums(albums, filters) {
             
         }
 
-        console.log(result.sort((a, b) => b.year - a.year)[0]);
-        console.log(result.sort((a, b) => b.year - a.year)[1]);
+        console.log(result.sort((a, b) => b.year - a.year));
+        
     
     
 
