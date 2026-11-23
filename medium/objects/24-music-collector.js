@@ -11,7 +11,7 @@ function generatePlaylist(albums, options) {
     for ( let album of albums ){
         for ( let track of album.tracks ){
             if (options.minDuration === track.duration){
-                console.log(track);
+                console.log(track.title);
                 
             }
         }
