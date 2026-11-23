@@ -11,9 +11,10 @@ function searchAlbums(albums, filters) {
         };
 
         for ( let album of albums){
-            if (album.artist.toLowerCase().includes(filters.search) &&
+            if ((album.artist.toLowerCase().includes(filters.search)) ||
+                (album.artist.toLowerCase().includes(filters.search)) &&
                 (filters.genre === "" || album.genre === filters.genre) &&
-                (filters.onlyLiked === true || album.liked === filters.onlyLiked) &&
+                (!filters.onlyLiked || album.liked ) &&
                 (album.rating >= filters.minRating)){
                     result.push(album)
                 }
