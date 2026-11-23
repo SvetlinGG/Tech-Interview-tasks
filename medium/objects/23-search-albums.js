@@ -22,7 +22,7 @@ function searchAlbums(albums, filters) {
             
         }
 
-        console.log(result.sort((a, b) => b.year - a.year));
+        return result.sort((a, b) => b.year - a.year);
         
     
     

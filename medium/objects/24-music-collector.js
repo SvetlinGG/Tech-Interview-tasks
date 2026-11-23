@@ -1,0 +1,3 @@
+function generatePlaylist(albums, options) {
+    
+}
