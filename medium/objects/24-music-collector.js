@@ -1,6 +1,12 @@
 function generatePlaylist(albums, options) {
 
-    
+    options = {
+        onlyLiked: true,
+        minDuration: 250,
+        maxDuration: 400,
+        sortBy: "duration",
+        order: "asc"
+    };
     
 
 }
@@ -40,3 +46,34 @@ generatePlaylist([
         ]
     }
 ])
+
+// Изисквания
+// Функцията трябва:
+// 1. Да събира песните от всички албуми.
+// 2. Ако onlyLiked === true, да включва песни само от харесани албуми.
+// 3. Да включва само песни с продължителност между minDuration и maxDuration (включително).
+// 4. Всяка песен в резултата трябва да съдържа:
+//    - title
+//    - artist
+//    - album
+//    - duration
+// 5. Да сортира по продължителност, ако sortBy === "duration".
+// 6. Ако order === "desc", сортирането трябва да е низходящо.
+// 7. Да не променя оригиналните данни.
+// 8. Да връща празен масив, ако няма подходящи песни.
+
+// expected output:
+// [
+//     {
+//         title: "Another Brick in the Wall",
+//         artist: "Pink Floyd",
+//         album: "The Wall",
+//         duration: 240
+//     },
+//     {
+//         title: "Hey You",
+//         artist: "Pink Floyd",
+//         album: "The Wall",
+//         duration: 280
+//     }
+// ]
