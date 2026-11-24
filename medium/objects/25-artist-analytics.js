@@ -10,16 +10,16 @@ function getArtistAnalytics(albums) {
     for ( let album of albums ){
         let counterLikedAlbums = 0;
         let counterAlbums = 0;
-        if ( artistAnalytic){
+        
             if ( album.artist && album.liked ){
-                artistAnalytic[album.artist] = album.artist;
-                artistAnalytic[album.liked] = counterLikedAlbums;
-                artistAnalytic[album.artist] = counterAlbums;
+                artistAnalytic[artist] = album.artist;
+                artistAnalytic[likedAlbums] = counterLikedAlbums;
+                artistAnalytic[artist] = counterAlbums;
             }else{
-                artistAnalytic[album.liked] += 1;
-                artistAnalytic[album.artist] += 1;
+                artistAnalytic[likedAlbums] ++;
+                artistAnalytic[artist] ++;
             }
-        }
+        
         result.push(artistAnalytic)
         
     }
