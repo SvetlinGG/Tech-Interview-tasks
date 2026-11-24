@@ -1,6 +1,26 @@
 function getArtistAnalytics(albums) {
-    
 
+    let counterAlbums = 0;
+    let countTracks = 0;
+    let result = [];
+
+    for ( let album of albums ){
+        let counterLikedAlbums = 0;
+        if ( album.artist && album.title ) {
+            if ( album.liked ){
+            counterLikedAlbums ++;
+            let artistAnalytic = {
+                artist: album.artist,
+                likedAlbums: counterLikedAlbums
+            }
+            result.push(artistAnalytic)
+        }
+        }
+    }
+    console.log(result[0]);
+    console.log(result[1]);
+    console.log(result[2]);
+    
 
 }
 getArtistAnalytics([
