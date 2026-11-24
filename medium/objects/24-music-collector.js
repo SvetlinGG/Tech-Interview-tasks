@@ -13,21 +13,22 @@ function generatePlaylist(albums, options) {
         for ( let track of album.tracks ){
             if ((!options.onlyLiked || album.liked) &&
                 (track.duration >= options.minDuration && track.duration <= options.maxDuration) &&
-                (options.sortBy === "duration" && options.order === "asc")){
+                (options.sortBy === "duration" && options.order === "asc"))
+                {
+                
                 const chooseAlbums = {
                     title: track.title,
                     artist: album.artist,
                     album: album.title,
-                    duration: track.duration
+                    duration:  track.duration
                 }
                 result.push(chooseAlbums)
             }
         }
     }
-    console.log(result[0]);
-    console.log(result[1]);
+    return result.sort((a, b) => a.duration - b.duration);
     
-    
+   
 
 }
 generatePlaylist([
