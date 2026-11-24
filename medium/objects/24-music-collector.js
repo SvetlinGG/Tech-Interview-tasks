@@ -12,8 +12,7 @@ function generatePlaylist(albums, options) {
     for ( let album of albums ){
         for ( let track of album.tracks ){
             if ((!options.onlyLiked || album.liked) &&
-                (track.duration >= options.minDuration && track.duration <= options.maxDuration) &&
-                (options.sortBy === "duration" && options.order === "asc"))
+                (track.duration >= options.minDuration && track.duration <= options.maxDuration))
                 {
                 
                 const chooseAlbums = {
