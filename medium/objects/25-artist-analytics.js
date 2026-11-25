@@ -2,26 +2,21 @@ function getArtistAnalytics(albums) {
 
     let artistObj = {};
     let result = [];
-    //let likedCounter ;//= albums.filter(item => item.liked).length
-    //let albumCounter = 0;
 
     for ( let album of albums){
-        let albumCounter = 0;
-        let likedCounter = 0
-        if ( album.artist){
-            albumCounter++;
-            if (album.liked === true){
-                likedCounter +=1
-                artistObj = {
+        if (!artistObj){
+            artistObj = {
                 artist: album.artist,
-                totalAlbums: albumCounter,
-                likedAlbums: likedCounter,
-            }
-            result.push(artistObj)
+                likedAlbums: 0
             }
         }
-    
+        if ( album.liked === true){
+            artistObj.likedAlbums += 1;
         }
+        //result.push(artistObj)
+        }
+        
+        result.push(artistObj)
     
     console.log(result);
     
