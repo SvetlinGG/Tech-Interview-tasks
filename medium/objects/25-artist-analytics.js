@@ -3,28 +3,30 @@ function getArtistAnalytics(albums) {
     
     let countTracks = 0;
     let result = [];
-    let artistAnalytic = {
-        artist: '',
-        totalAlbums: 0,
-        likedAlbums: 0,
-        totalTracks: 0,
-        totalDuration: 0,
-        latestAlbumYear: 0
-    };
+    //let artistAnalytic = {};
 
 
     for ( let album of albums ){
-        let counterLikedAlbums = 0;
-        let counterAlbums = 0;
-        
-            
-        
-        result.push(artistAnalytic)
-        
+        let likedCounter = 0;
+        let albumCounter = 0;
+        if ( album.artist && album.liked === true && album.title){
+            likedCounter ++;
+            albumCounter ++;
+            let artistAnalytic = {
+                artist: album.artist,
+                totalAlbums: albumCounter,
+                likedAlbums: likedCounter
+            }
+            result.push(artistAnalytic)
+        }
     }
+
+    
+
     console.log(result[0]);
     console.log(result[1]);
     console.log(result[2]);
+    //console.log(result[3]);
 
     
     
