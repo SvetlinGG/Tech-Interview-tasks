@@ -13,15 +13,17 @@ function getArtistAnalytics(albums) {
                 totalDuration: 0,
                 latestAlbumYear: album.year
             }
-        }
-        if ( album.liked && album.artist){
+            if ( album.liked && album.artist){
             artistObj.likedAlbums += 1;
             artistObj.totalTracks = album.tracks.length
 
-        }
+        } 
+        result.push(artistObj)
         }
         
-        result.push(artistObj)
+        }
+        
+        //result.push(artistObj)
     
     console.log(result);
     
