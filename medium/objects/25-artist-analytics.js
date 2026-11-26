@@ -4,7 +4,21 @@ function getArtistAnalytics(albums) {
     let result = [];
 
     for ( let album of albums){
-        
+        if ( !artistObj[album.artist]){
+            artistObj = {
+                artist: album.artist,
+                totalAlbums: 1,
+                likedAlbums: 0,
+                totalTracks: 0,
+                totalDuration: 0,
+                latestAlbumYear: album.year
+            }
+        }
+        if ( album.liked && album.artist){
+            artistObj.likedAlbums += 1;
+            artistObj.totalTracks = album.tracks.length
+
+        }
         }
         
         result.push(artistObj)
