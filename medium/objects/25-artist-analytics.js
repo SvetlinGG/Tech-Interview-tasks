@@ -3,26 +3,26 @@ function getArtistAnalytics(albums) {
     let artistObj = {};
     let result = [];
     let likedItems = 0;
-    let albumsCounter = 1;
+    let albumCounter = 0;
 
     for ( let album of albums){
+        
         if ( !artistObj[album.artist]){
             artistObj = {
                 artist: album.artist,
-                totalAlbums: albumsCounter,
+                totalAlbums: albumCounter,
                 likedAlbums: likedItems,
                 totalTracks: 0,
                 totalDuration: 0,
                 latestAlbumYear: album.year
             }
-            if ( album.liked || album.artist){
-            artistObj.likedAlbums += 1;
-            artistObj.totalTracks = album.tracks.length
+            if ( album.liked ){
+                albumCounter ++;
+                artistObj.likedAlbums += 1;
+                artistObj.totalTracks = album.tracks.length;
+                artistObj.totalAlbums = albumCounter
             } 
 
-            if ( album.artist && album.title){
-                artistObj.totalAlbums += album.title
-            }
         result.push(artistObj)
         }
         
