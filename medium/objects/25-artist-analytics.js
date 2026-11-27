@@ -6,7 +6,9 @@ function getArtistAnalytics(albums) {
     
 
     for ( let album of albums){
-        let albumCounter = 0;
+        //album.title = 1;
+        //let albumCounter = album.title
+        let albumCounter = albums.map(item => item.title)
         if ( !artistObj[album.artist]){
             albumCounter ++;
             artistObj = {
@@ -16,12 +18,12 @@ function getArtistAnalytics(albums) {
                 totalTracks: album.tracks.length,
                 totalDuration: 0,
                 latestAlbumYear: album.year
+
             }
-            if ( album.liked ){
+            if ( album.liked){
                 artistObj.likedAlbums += 1;
                 result.push(artistObj)
             } 
-
         
         }
         
